@@ -19,9 +19,11 @@ async def process_help_command(message: Message):
 async def process_yes_answer(message: Message):
     await message.answer(text=LEXICON_RU['yes'], reply_markup=game_kb)
 
-@router.message(Text(text=LEXICON_RU['no']))
+@router.message(Text(text=LEXICON_RU['no_button']))
 async def process_no_answer(message: Message):
     await message.answer(text=LEXICON_RU['no'])
+
+
 
 
 
