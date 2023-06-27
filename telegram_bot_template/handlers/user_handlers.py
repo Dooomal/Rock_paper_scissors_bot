@@ -24,6 +24,17 @@ async def process_no_answer(message: Message):
     await message.answer(text=LEXICON_RU['no'])
 
 
+@router.message(Text(text=[LEXICON_RU['rock'],
+                           LEXICON_RU['paper'],
+                           LEXICON_RU['scissors']]))
+async def process_game_button(message: Message):
+    bot_choice = get_bot_choice()
+    await message.answer(text=f'{LEXICON_RU["bot_choice"]}'
+                         f'{LEXICON_RU[bot_choice]}')
+    winner = get_winner(message.text, bot_choice)
+    await message.answer(text=LEXICON_RU[winner], reply_markup=yes_no_kb)
+
+
 
 
 
